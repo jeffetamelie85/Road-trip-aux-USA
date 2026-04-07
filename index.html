@@ -1,0 +1,1961 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roadbook USA — Mai/Juin 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Special+Elite&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rouge: #C0392B;
+    --rouge-dark: #96281B;
+    --bleu: #1A3A5C;
+    --bleu-mid: #2E5F8A;
+    --beige: #F2E8D5;
+    --beige-dark: #D9C9A8;
+    --papier: #EDE3CE;
+    --or: #C9932F;
+    --or-light: #E8B84B;
+    --texte: #2C1F0E;
+    --gris: #6B6052;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    background: #3a3028;
+    color: var(--texte);
+  }
+
+  /* ===== COUVERTURE ===== */
+  .cover {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto 20px;
+    background: var(--bleu);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    page-break-after: always;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,0.04) 40px),
+      repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,0.04) 40px);
+  }
+
+  .cover-shield {
+    background: var(--rouge);
+    width: 160px;
+    height: 190px;
+    clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0 75%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 2;
+    border: 4px solid var(--or);
+  }
+
+  .cover-shield-inner {
+    color: white;
+    text-align: center;
+  }
+
+  .cover-shield .rb-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    letter-spacing: 4px;
+    color: var(--or-light);
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .cover-shield .rb-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: white;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .cover-shield .rb-subtitle {
+    font-family: 'Oswald', sans-serif;
+    font-size: 11px;
+    color: var(--or-light);
+    letter-spacing: 2px;
+  }
+
+  .cover-shield .route-num {
+    font-family: 'Oswald', sans-serif;
+    font-size: 52px;
+    font-weight: 700;
+    color: white;
+    line-height: 1;
+    text-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+  }
+
+  .cover-main-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 6px;
+    position: relative;
+    z-index: 2;
+    text-shadow: 3px 3px 0 rgba(0,0,0,0.4);
+  }
+
+  .cover-sub {
+    font-family: 'Special Elite', cursive;
+    font-size: 18px;
+    color: var(--or-light);
+    margin-top: 10px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .cover-date {
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    color: white;
+    letter-spacing: 3px;
+    margin-top: 20px;
+    padding: 8px 30px;
+    border-top: 2px solid var(--or);
+    border-bottom: 2px solid var(--or);
+    position: relative;
+    z-index: 2;
+  }
+
+  .cover-names {
+    font-family: 'Special Elite', cursive;
+    font-size: 22px;
+    color: var(--or-light);
+    margin-top: 30px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .cover-stripe {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 50px;
+    background: var(--rouge);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cover-stripe-text {
+    font-family: 'Oswald', sans-serif;
+    font-size: 11px;
+    letter-spacing: 8px;
+    color: rgba(255,255,255,0.8);
+    text-transform: uppercase;
+  }
+
+  .cover-stars {
+    display: flex;
+    gap: 8px;
+    margin-top: 15px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .star { color: var(--or); font-size: 20px; }
+
+  /* ===== CHECKLIST PAGE ===== */
+  .checklist-page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto 20px;
+    background: var(--papier);
+    padding: 30px;
+    page-break-after: always;
+    position: relative;
+  }
+
+  .page-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid var(--rouge);
+  }
+
+  .page-number-badge {
+    background: var(--rouge);
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .page-title-block .day-label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--rouge);
+    text-transform: uppercase;
+  }
+
+  .page-title-block h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--bleu);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  /* Checklist items */
+  .checklist-section {
+    background: white;
+    border: 1.5px solid var(--beige-dark);
+    border-left: 5px solid var(--or);
+    padding: 12px 15px;
+    margin-bottom: 8px;
+  }
+
+  .checklist-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 6px 0;
+    border-bottom: 1px dashed var(--beige-dark);
+  }
+  .checklist-item:last-child { border-bottom: none; }
+
+  .checklist-item input[type=checkbox] {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    accent-color: var(--rouge);
+    cursor: pointer;
+  }
+
+  .checklist-item label {
+    font-size: 13px;
+    color: var(--texte);
+    cursor: pointer;
+    line-height: 1.5;
+  }
+
+  .checklist-item label .done {
+    color: #888;
+    text-decoration: line-through;
+  }
+
+  .badge-ok {
+    background: #27ae60;
+    color: white;
+    font-size: 9px;
+    font-family: 'Oswald', sans-serif;
+    padding: 2px 6px;
+    letter-spacing: 1px;
+    margin-left: 6px;
+    font-weight: 600;
+  }
+
+  /* ===== ETAPE PAGE ===== */
+  .etape-page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto 20px;
+    background: var(--papier);
+    padding: 25px;
+    page-break-after: always;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .etape-page::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; right: -40px;
+    width: 200px; height: 200px;
+    background: rgba(26,58,92,0.04);
+    border-radius: 50%;
+  }
+
+  .etape-header {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    margin-bottom: 20px;
+  }
+
+  .etape-num-badge {
+    background: var(--rouge);
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    width: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding: 8px;
+  }
+
+  .etape-num-badge .jour-label {
+    font-size: 9px;
+    letter-spacing: 2px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.8);
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+
+  .etape-title-bar {
+    background: var(--bleu);
+    flex: 1;
+    padding: 10px 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .etape-title-bar .day-of-week {
+    font-family: 'Oswald', sans-serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--or-light);
+    text-transform: uppercase;
+  }
+
+  .etape-title-bar h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1.2;
+  }
+
+  .etape-title-bar .date-display {
+    font-family: 'Special Elite', cursive;
+    font-size: 13px;
+    color: var(--or-light);
+    margin-top: 2px;
+  }
+
+  /* Grid 2 cols */
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 15px;
+  }
+
+  .content-grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+
+  /* Info card */
+  .info-card {
+    background: white;
+    border: 1px solid var(--beige-dark);
+    padding: 12px 14px;
+  }
+
+  .info-card-header {
+    font-family: 'Oswald', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--rouge);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .info-card-header::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--beige-dark);
+  }
+
+  .info-card p {
+    font-size: 12px;
+    color: var(--texte);
+    line-height: 1.6;
+  }
+
+  .info-card strong {
+    color: var(--bleu);
+  }
+
+  /* Timeline */
+  .timeline {
+    background: white;
+    border: 1px solid var(--beige-dark);
+    padding: 12px 14px;
+  }
+
+  .timeline-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 5px 0;
+    border-bottom: 1px dashed #eee;
+  }
+  .timeline-item:last-child { border-bottom: none; }
+
+  .timeline-time {
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--rouge);
+    min-width: 35px;
+    flex-shrink: 0;
+  }
+
+  .timeline-icon {
+    width: 22px;
+    height: 22px;
+    background: var(--beige-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    flex-shrink: 0;
+    border-radius: 2px;
+  }
+
+  .timeline-text {
+    font-size: 12px;
+    color: var(--texte);
+    line-height: 1.5;
+    padding-top: 2px;
+  }
+
+  .timeline-text strong {
+    color: var(--bleu);
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    display: block;
+    text-transform: uppercase;
+  }
+
+  /* Route distances */
+  .route-strip {
+    background: var(--bleu);
+    color: white;
+    padding: 8px 14px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+
+  .route-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+  }
+
+  .route-item .val {
+    font-family: 'Oswald', sans-serif;
+    font-size: 15px;
+    color: var(--or-light);
+  }
+
+  /* Hotel card */
+  .hotel-card {
+    background: var(--bleu);
+    color: white;
+    padding: 12px 14px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .hotel-icon-box {
+    background: var(--rouge);
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .hotel-name {
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .hotel-address {
+    font-size: 11px;
+    color: rgba(255,255,255,0.75);
+    margin-top: 3px;
+    line-height: 1.5;
+  }
+
+  .hotel-amenities {
+    display: flex;
+    gap: 6px;
+    margin-top: 6px;
+  }
+
+  .amenity-badge {
+    background: rgba(255,255,255,0.15);
+    color: var(--or-light);
+    font-family: 'Oswald', sans-serif;
+    font-size: 9px;
+    padding: 2px 7px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* Tips box */
+  .tips-box {
+    background: #FFF9EE;
+    border: 1.5px solid var(--or);
+    border-left: 5px solid var(--or);
+    padding: 10px 12px;
+    margin-top: 12px;
+  }
+
+  .tips-box-header {
+    font-family: 'Oswald', sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--or);
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    font-weight: 600;
+  }
+
+  .tips-box p {
+    font-size: 11px;
+    color: #5a4a20;
+    line-height: 1.6;
+    font-style: italic;
+  }
+
+  /* Map placeholder */
+  .map-placeholder {
+    background: #dce8f0;
+    border: 1px solid #b0c8da;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    min-height: 120px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: #4a7a9b;
+    text-transform: uppercase;
+  }
+
+  /* Summary table */
+  .summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+
+  .summary-table th {
+    background: var(--bleu);
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    padding: 8px 10px;
+    text-align: left;
+    text-transform: uppercase;
+  }
+
+  .summary-table td {
+    padding: 7px 10px;
+    border-bottom: 1px solid var(--beige-dark);
+    color: var(--texte);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+
+  .summary-table tr:nth-child(even) td {
+    background: rgba(242,232,213,0.5);
+  }
+
+  .summary-table .jour-cell {
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--rouge);
+    white-space: nowrap;
+  }
+
+  .summary-table .date-cell {
+    white-space: nowrap;
+    color: var(--gris);
+    font-size: 11px;
+  }
+
+  .summary-table .lieu-cell {
+    font-weight: 700;
+    color: var(--bleu);
+  }
+
+  /* ===== UTILITIES ===== */
+  .full-width { grid-column: 1 / -1; }
+
+  .section-divider {
+    border: none;
+    border-top: 2px dashed var(--beige-dark);
+    margin: 15px 0;
+  }
+
+  .red-stripe-header {
+    background: var(--rouge);
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    font-size: 12px;
+    letter-spacing: 3px;
+    padding: 5px 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  /* Print */
+  @media print {
+    body { background: white; }
+    .etape-page, .checklist-page, .cover { margin: 0; page-break-after: always; }
+    @page { size: A4; margin: 0; }
+  }
+
+  /* Nav */
+  .roadbook-nav {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--bleu);
+    padding: 15px;
+    z-index: 100;
+    max-height: 90vh;
+    overflow-y: auto;
+    width: 200px;
+  }
+
+  .roadbook-nav h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: var(--or-light);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding-bottom: 8px;
+  }
+
+  .nav-item {
+    display: block;
+    font-family: 'Lato', sans-serif;
+    font-size: 11px;
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    padding: 4px 0;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    transition: color 0.2s;
+  }
+
+  .nav-item:hover { color: var(--or-light); }
+  .nav-item .jour-tag {
+    font-family: 'Oswald', sans-serif;
+    color: var(--rouge);
+    font-size: 12px;
+    margin-right: 6px;
+  }
+
+  .btn-print {
+    background: var(--rouge);
+    color: white;
+    border: none;
+    font-family: 'Oswald', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    padding: 8px 12px;
+    cursor: pointer;
+    width: 100%;
+    text-transform: uppercase;
+    margin-top: 10px;
+  }
+
+  .full-span { grid-column: 1 / -1; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="roadbook-nav">
+  <h3>Navigation</h3>
+  <a class="nav-item" href="#cover">🏁 Couverture</a>
+  <a class="nav-item" href="#checklist">✔ Checklist</a>
+  <a class="nav-item" href="#recap">📋 Récap itinéraire</a>
+  <a class="nav-item" href="#j1">J1 Saint Louis</a>
+  <a class="nav-item" href="#j5">J5 Las Vegas</a>
+  <a class="nav-item" href="#j6">J6 Las Vegas</a>
+  <a class="nav-item" href="#j7">J7 Route 66 → Grand Canyon</a>
+  <a class="nav-item" href="#j8">J8 Grand Canyon</a>
+  <a class="nav-item" href="#j9">J9 Monument Valley</a>
+  <a class="nav-item" href="#j10">J10 Lake Powell / Page</a>
+  <a class="nav-item" href="#j11">J11 Bryce Canyon</a>
+  <a class="nav-item" href="#j13">J13 Zion NP</a>
+  <a class="nav-item" href="#j15">J15 Death Valley</a>
+  <a class="nav-item" href="#j16">J16 Mammoth Lakes</a>
+  <a class="nav-item" href="#j17">J17 Yosemite</a>
+  <a class="nav-item" href="#j21">J21 San Francisco</a>
+  <a class="nav-item" href="#j24">J24 Highway 1</a>
+  <a class="nav-item" href="#j26">J26 Los Angeles</a>
+  <a class="nav-item" href="#j29">J29 Retour</a>
+  <button class="btn-print" onclick="window.print()">🖨 Imprimer</button>
+</nav>
+
+<!-- ===== COUVERTURE ===== -->
+<div class="cover" id="cover">
+  <div class="cover-shield">
+    <div class="cover-shield-inner">
+      <div class="rb-label">Road</div>
+      <div class="rb-title">Book</div>
+      <div class="route-num">26</div>
+      <div class="rb-subtitle">West USA</div>
+    </div>
+  </div>
+
+  <div class="cover-main-title">Voyage aux USA</div>
+  <div class="cover-sub">Grand Ouest Américain en Famille</div>
+
+  <div class="cover-stars">
+    <span class="star">★</span>
+    <span class="star">★</span>
+    <span class="star">★</span>
+    <span class="star">★</span>
+    <span class="star">★</span>
+  </div>
+
+  <div class="cover-date">24 MAI — 22 JUIN 2026</div>
+
+  <div style="margin-top: 25px; font-family: 'Special Elite', cursive; color: rgba(255,255,255,0.6); font-size: 13px; text-align: center; position: relative; z-index: 2;">
+    Saint Louis · Las Vegas · Grand Canyon<br>
+    Monument Valley · Page · Bryce Canyon<br>
+    Zion · Death Valley · Yosemite<br>
+    San Francisco · Highway 1 · Los Angeles
+  </div>
+
+  <div class="cover-names">Amélie & Jeff &amp; Margaux</div>
+
+  <div class="cover-stripe">
+    <span class="cover-stripe-text">Route 66 · National Parks Pass · SUV · 30 jours</span>
+  </div>
+</div>
+
+<!-- ===== CHECKLIST ===== -->
+<div class="checklist-page" id="checklist">
+  <div class="page-header">
+    <div class="page-number-badge">✔</div>
+    <div class="page-title-block">
+      <div class="day-label">Avant le départ</div>
+      <h2>Checklist Essentielle</h2>
+    </div>
+  </div>
+
+  <div class="checklist-section">
+    <div style="font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:2px;color:var(--rouge);margin-bottom:8px;text-transform:uppercase;">Documents &amp; Administratif</div>
+    <div class="checklist-item">
+      <input type="checkbox" id="c1" checked>
+      <label for="c1">VISA ESTA <span class="badge-ok">OK</span></label>
+    </div>
+    <div class="checklist-item">
+      <input type="checkbox" id="c2" checked>
+      <label for="c2">Cartes bleues — Carte Gold (pas de frais) + Carte Jeune Margaux (pas de frais) <span class="badge-ok">OK</span></label>
+    </div>
+    <div class="checklist-item">
+      <input type="checkbox" id="c3" checked>
+      <label for="c3">America The Beautiful Pass (Parcs Nationaux) <span class="badge-ok">OK</span></label>
+    </div>
+    <div class="checklist-item">
+      <input type="checkbox" id="c4" checked>
+      <label for="c4">Permis de conduire international (Permis B valable aux USA) <span class="badge-ok">OK</span></label>
+    </div>
+    <div class="checklist-item">
+      <input type="checkbox" id="c5">
+      <label for="c5">Cartes routières imprimées / téléchargées offline (Google Maps, Maps.me)</label>
+    </div>
+    <div class="checklist-item">
+      <input type="checkbox" id="c6" checked>
+      <label for="c6">Guides touristiques : San Francisco + Parcs Nationaux <span class="badge-ok">OK</span></label>
+    </div>
+    <div class="checklist-item">
+      <input type="checkbox" id="c7" checked>
+      <label for="c7">Assurance maladie / hospitalisation — Gold 156 000 € <span class="badge-ok">OK</span></label>
+    </div>
+    <div class="checklist-item">
+      <input type="checkbox" id="c8">
+      <label for="c8">Adaptateurs de prise électrique (Type A - US)</label>
+    </div>
+  </div>
+
+  <div class="checklist-section" style="border-left-color: var(--bleu-mid);">
+    <div style="font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:2px;color:var(--bleu);margin-bottom:8px;text-transform:uppercase;">Réservations Transport</div>
+    <div class="checklist-item">
+      <input type="checkbox" id="r1" checked>
+      <label for="r1">Train Nantes–Paris CDG (rés. GSVU25) — 138 € CB Amélie <span class="badge-ok">OK</span></label>
+    </div>
+    <div class="checklist-item">
+      <input type="checkbox" id="r2" checked>
+      <label for="r2">Vol CDG → Saint Louis via Londres (rés. XRJGJC — British Airways) — 1 195 € <span class="badge-ok">OK</span></label>
+    </div>
+    <div class="checklist-item">
+      <input type="checkbox" id="r3" checked>
+      <label for="r3">Vol intérieur STL → Las Vegas Delta (rés. #GFHZ2T) — 394 € CB Gold <span class="badge-ok">OK</span></label>
+    </div>
+    <div class="checklist-item">
+      <input type="checkbox" id="r4" checked>
+      <label for="r4">Location SUV Alamo (rés. 1495537432) — 917 $ CB Gold <span class="badge-ok">OK</span></label>
+    </div>
+    <div class="checklist-item">
+      <input type="checkbox" id="r5" checked>
+      <label for="r5">Vol retour LAX → Paris Norse Atlantic (rés. A2673F + Z5YBQS) — 1 131 $ <span class="badge-ok">OK</span></label>
+    </div>
+  </div>
+
+  <div class="checklist-section" style="border-left-color: #27ae60;">
+    <div style="font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:2px;color:#27ae60;margin-bottom:8px;text-transform:uppercase;">Activités réservées</div>
+    <div class="checklist-item">
+      <input type="checkbox" id="a1" checked>
+      <label for="a1">Cirque du Soleil ONE — Las Vegas 29/05 à 18h30 — 561 € CB Amélie <span class="badge-ok">OK</span></label>
+    </div>
+    <div class="checklist-item">
+      <input type="checkbox" id="a2" checked>
+      <label for="a2">Antelope Canyon Lower — 02/06 à 12h30 — 371 $ CB Amélie <span class="badge-ok">OK</span></label>
+    </div>
+    <div class="checklist-item">
+      <input type="checkbox" id="a3" checked>
+      <label for="a3">Alcatraz via Get Your Guide — 15h45 — 289 $ CB Amélie <span class="badge-ok">OK</span></label>
+    </div>
+    <div class="checklist-item">
+      <input type="checkbox" id="a4">
+      <label for="a4">Warner Bros Studio Tour OU Universal Studios Hollywood — à réserver</label>
+    </div>
+  </div>
+
+  <div class="tips-box" style="margin-top: 15px;">
+    <div class="tips-box-header">💡 Conseils pratiques</div>
+    <p>Télécharger les cartes offline avant de partir. Prévoir de la monnaie US pour les parkings (Horseshoe Bend : 10 $/véhicule). Le Pass America The Beautiful couvre tous les parcs nationaux. Navettes gratuites à Bryce Canyon et Zion (voiture interdite en saison).</p>
+  </div>
+</div>
+
+<!-- ===== RÉCAP ITINÉRAIRE ===== -->
+<div class="etape-page" id="recap">
+  <div class="etape-header">
+    <div class="etape-num-badge" style="font-size:22px;letter-spacing:1px;">
+      <span class="jour-label">Planning</span>
+      <span>Recap</span>
+    </div>
+    <div class="etape-title-bar">
+      <div class="day-of-week">24 Mai → 22 Juin 2026</div>
+      <h2>Récapitulatif de l'Itinéraire</h2>
+      <div class="date-display">30 jours · 6 États · 4 000+ kilomètres</div>
+    </div>
+  </div>
+
+  <table class="summary-table">
+    <thead>
+      <tr>
+        <th>Jour</th>
+        <th>Date</th>
+        <th>Étape</th>
+        <th>Hébergement</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="jour-cell">J1–J4</td><td class="date-cell">24–27 mai</td><td class="lieu-cell">Saint Louis, MO</td><td>Ground Floor Forest Park Studio (4 nuits) ✔</td></tr>
+      <tr><td class="jour-cell">J5</td><td class="date-cell">28 mai</td><td class="lieu-cell">STL → Las Vegas</td><td>Embassy Suites Hilton Convention Center (2 nuits) ✔</td></tr>
+      <tr><td class="jour-cell">J6</td><td class="date-cell">29 mai</td><td class="lieu-cell">Las Vegas</td><td>Embassy Suites (suite) + Cirque du Soleil 🎪</td></tr>
+      <tr><td class="jour-cell">J7</td><td class="date-cell">30 mai</td><td class="lieu-cell">Vegas → Route 66 → Grand Canyon</td><td>Grand Canyon Hotel &amp; Suites, Tusayan (2 nuits) ✔</td></tr>
+      <tr><td class="jour-cell">J8</td><td class="date-cell">31 mai</td><td class="lieu-cell">Grand Canyon NP</td><td>Idem — Randonnée Kaibab/Bright Angel 🥾</td></tr>
+      <tr><td class="jour-cell">J9</td><td class="date-cell">1 juin</td><td class="lieu-cell">Grand Canyon → Monument Valley</td><td>Wetherill Inn, Kayenta (1 nuit) ✔</td></tr>
+      <tr><td class="jour-cell">J10</td><td class="date-cell">2 juin</td><td class="lieu-cell">Monument Valley → Lake Powell / Page</td><td>Travelodge Wyndham Page (1 nuit) ✔ — Antelope Canyon 12h30</td></tr>
+      <tr><td class="jour-cell">J11</td><td class="date-cell">3 juin</td><td class="lieu-cell">Page → Bryce Canyon</td><td>Bryce Gateway Inn Cabins, Panguitch (2 nuits) ✔</td></tr>
+      <tr><td class="jour-cell">J12</td><td class="date-cell">4 juin</td><td class="lieu-cell">Bryce Canyon NP</td><td>Idem — Big Loop 🥾 (15 km)</td></tr>
+      <tr><td class="jour-cell">J13</td><td class="date-cell">5 juin</td><td class="lieu-cell">Bryce Canyon → Zion NP</td><td>Hotel Zion Inn, Hurricane (2 nuits) ✔</td></tr>
+      <tr><td class="jour-cell">J14</td><td class="date-cell">6 juin</td><td class="lieu-cell">Zion NP</td><td>Idem — The Narrows 🥾</td></tr>
+      <tr><td class="jour-cell">J15</td><td class="date-cell">7 juin</td><td class="lieu-cell">Zion → Death Valley</td><td>Longstreet Inn &amp; Casino, Amargosa Valley (1 nuit) ✔</td></tr>
+      <tr><td class="jour-cell">J16</td><td class="date-cell">8 juin</td><td class="lieu-cell">Death Valley → Mammoth Lakes</td><td>Motel 6 Mammoth Lakes (1 nuit) ✔</td></tr>
+      <tr><td class="jour-cell">J17–J20</td><td class="date-cell">9–12 juin</td><td class="lieu-cell">Mammoth → Yosemite NP</td><td>Curry Village (4 nuits) — Tioga Pass ✔</td></tr>
+      <tr><td class="jour-cell">J21</td><td class="date-cell">13 juin</td><td class="lieu-cell">Yosemite → San Francisco</td><td>Adelaïde Hostel, Union Square (3 nuits) ✔</td></tr>
+      <tr><td class="jour-cell">J22–J23</td><td class="date-cell">14–15 juin</td><td class="lieu-cell">San Francisco</td><td>Idem — Golden Gate, Alcatraz 🚢</td></tr>
+      <tr><td class="jour-cell">J24</td><td class="date-cell">16 juin</td><td class="lieu-cell">SF → Highway 1 → Monterey</td><td>Super 8 Wyndham Monterey (1 nuit) ✔</td></tr>
+      <tr><td class="jour-cell">J25</td><td class="date-cell">17 juin</td><td class="lieu-cell">Monterey → Pismo Beach</td><td>Edgewater Inn, Pismo Beach (1 nuit) ✔</td></tr>
+      <tr><td class="jour-cell">J26–J28</td><td class="date-cell">18–20 juin</td><td class="lieu-cell">Pismo Beach → Los Angeles</td><td>À réserver — 2 nuits ⚠</td></tr>
+      <tr><td class="jour-cell">J29</td><td class="date-cell">21 juin</td><td class="lieu-cell">LAX → Paris (départ 1h du matin)</td><td>Arrivée Paris CDG 20h35 ✈</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ===== J1-4 SAINT LOUIS ===== -->
+<div class="etape-page" id="j1">
+  <div class="etape-header">
+    <div class="etape-num-badge">
+      <span class="jour-label">Jours</span>1–4
+    </div>
+    <div class="etape-title-bar">
+      <div class="day-of-week">Dimanche – Mercredi</div>
+      <h2>Saint Louis, Missouri</h2>
+      <div class="date-display">24 – 27 mai 2026</div>
+    </div>
+  </div>
+
+  <div class="route-strip">
+    <div class="route-item">✈ <span class="val">Paris CDG</span> → Nantes 8h02 → CDG 11h09</div>
+    <div class="route-item">✈ <span class="val">CDG 14h15 → Saint Louis 19h30</span> (British Airways — XRJGJC)</div>
+  </div>
+
+  <div class="content-grid">
+    <div>
+      <div class="timeline">
+        <div class="info-card-header">Programme J1</div>
+        <div class="timeline-item">
+          <div class="timeline-time">8h02</div>
+          <div class="timeline-icon">🚂</div>
+          <div class="timeline-text"><strong>Départ Nantes</strong>Train vers Paris CDG — Rés. GSVU25</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">11h09</div>
+          <div class="timeline-icon">✈</div>
+          <div class="timeline-text"><strong>Paris CDG</strong>Correspondance &amp; embarquement — vol 14h15</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">19h30</div>
+          <div class="timeline-icon">🏙</div>
+          <div class="timeline-text"><strong>Arrivée Saint Louis</strong>Décalage -7h — installation appartement</div>
+        </div>
+      </div>
+
+      <div class="hotel-card" style="margin-top:10px;">
+        <div class="hotel-icon-box">🏠</div>
+        <div>
+          <div class="hotel-name">Ground Floor Forest Park Studio</div>
+          <div class="hotel-address">Avec parking et lave-linge<br>Saint Louis, MO — 4 nuits</div>
+          <div class="hotel-amenities">
+            <span class="amenity-badge">Parking</span>
+            <span class="amenity-badge">Lave-linge</span>
+          </div>
+          <div class="hotel-address" style="margin-top:5px;color:var(--or-light);">316 $ (268,84 €) — CB Gold</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="info-card">
+        <div class="info-card-header">À Voir à Saint Louis</div>
+        <div class="timeline-item">
+          <div class="timeline-icon">🏛</div>
+          <div class="timeline-text"><strong>Gateway Arch</strong>L'arche emblématique de 192m, symbole de la "Porte de l'Ouest". Ascenseur panoramique + musée.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-icon">🎵</div>
+          <div class="timeline-text"><strong>National Blues Museum</strong>Histoire du blues américain, berceau de la culture musicale US. Expos interactives.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-icon">🌳</div>
+          <div class="timeline-text"><strong>Forest Park</strong>Plus grand que Central Park — zoo gratuit, musée d'art, jardins botaniques.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-icon">🍺</div>
+          <div class="timeline-text"><strong>Soulard District</strong>Le quartier historique avec marchés, bars jazz et ambiance locale authentique.</div>
+        </div>
+      </div>
+
+      <div class="tips-box">
+        <div class="tips-box-header">💡 Astuce</div>
+        <p>Profitez de ces 4 jours pour vous adapter au décalage horaire (−7h). Ne surchargez pas le programme, notamment les premiers jours. Forest Park est idéal pour une promenade matinale détendue.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== J5-6 LAS VEGAS ===== -->
+<div class="etape-page" id="j5">
+  <div class="etape-header">
+    <div class="etape-num-badge">
+      <span class="jour-label">Jours</span>5–6
+    </div>
+    <div class="etape-title-bar">
+      <div class="day-of-week">Jeudi – Vendredi</div>
+      <h2>Las Vegas, Nevada</h2>
+      <div class="date-display">28 – 29 mai 2026</div>
+    </div>
+  </div>
+
+  <div class="route-strip">
+    <div class="route-item">✈ <span class="val">STL 19h59 → LV 23h43</span> (escale Salt Lake City 22h14–23h17) — Delta #GFHZ2T</div>
+    <div class="route-item">🚗 <span class="val">Récupération SUV Alamo</span> rés. 1495537432</div>
+  </div>
+
+  <div class="content-grid">
+    <div>
+      <div class="timeline">
+        <div class="info-card-header">Programme J5–J6</div>
+        <div class="timeline-item">
+          <div class="timeline-time">J5 soir</div>
+          <div class="timeline-icon">🚗</div>
+          <div class="timeline-text"><strong>Arrivée Las Vegas</strong>Récupération SUV Alamo à l'aéroport. Installation hôtel. Première balade sur le Strip.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">J6 jour</div>
+          <div class="timeline-icon">🎰</div>
+          <div class="timeline-text"><strong>Exploration du Strip</strong>Bellagio (fontaines gratuites), Caesars Palace, The LINQ, Fremont Street Experience.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">J6 18h30</div>
+          <div class="timeline-icon">🎪</div>
+          <div class="timeline-text"><strong>Cirque du Soleil — ONE</strong>Spectacle réservé ! — 561 € CB Amélie. <em>Recommandation de Cindy : Dandelion Chocolate</em></div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="hotel-card">
+        <div class="hotel-icon-box">🏨</div>
+        <div>
+          <div class="hotel-name">Embassy Suites by Hilton</div>
+          <div class="hotel-address">Convention Center — 3600 Paradise Road<br>Las Vegas, NV — 2 nuits</div>
+          <div class="hotel-amenities">
+            <span class="amenity-badge">Petit-déj</span>
+            <span class="amenity-badge">Piscine</span>
+            <span class="amenity-badge">Blanchisserie</span>
+          </div>
+          <div class="hotel-address" style="margin-top:5px;color:var(--or-light);">349,57 $ (296,93 €) — CB Gold</div>
+        </div>
+      </div>
+
+      <div class="info-card" style="margin-top:10px;">
+        <div class="info-card-header">À Ne Pas Manquer</div>
+        <p>• <strong>Bellagio Fountains</strong> — spectacle gratuit toutes les 30 min en soirée<br>
+        • <strong>High Roller</strong> — la grande roue la plus haute du monde (167m)<br>
+        • <strong>Fremont Street Experience</strong> — Vegas Old Town, voûte lumineuse LED<br>
+        • <strong>Néons Museum</strong> — musée des enseignes vintage de Las Vegas</p>
+      </div>
+
+      <div class="tips-box">
+        <div class="tips-box-header">💡 Conseils Las Vegas</div>
+        <p>La chaleur en mai peut dépasser 35°C. Hydratez-vous en permanence. Le Strip se parcourt à pied mais les distances sont trompeuses. Préférez le monorail ou Uber entre hôtels. Ne manquez pas les casinos "off-Strip" pour l'ambiance locale.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== J7 ROUTE 66 GRAND CANYON ===== -->
+<div class="etape-page" id="j7">
+  <div class="etape-header">
+    <div class="etape-num-badge">
+      <span class="jour-label">Jour</span>7
+    </div>
+    <div class="etape-title-bar">
+      <div class="day-of-week">Samedi</div>
+      <h2>Route 66 → Grand Canyon</h2>
+      <div class="date-display">30 mai 2026</div>
+    </div>
+  </div>
+
+  <div class="route-strip">
+    <div class="route-item">🚗 <span class="val">Las Vegas → Kingman</span> ~2h (190 km)</div>
+    <div class="route-item">🛣 <span class="val">Kingman → Seligman</span> 140 km · 1h30</div>
+    <div class="route-item">🛣 <span class="val">Williams → Grand Canyon</span> 95 km · 1h05</div>
+    <div class="route-item">🚗 <span class="val">Total ≈ 4h30</span> (440 km)</div>
+  </div>
+
+  <div class="content-grid">
+    <div>
+      <div class="timeline">
+        <div class="info-card-header">Programme de la journée</div>
+        <div class="timeline-item">
+          <div class="timeline-time">8h–9h</div>
+          <div class="timeline-icon">🚗</div>
+          <div class="timeline-text"><strong>Départ Las Vegas → Kingman</strong>Direction la mythique Route 66 !</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">11h</div>
+          <div class="timeline-icon">🏘</div>
+          <div class="timeline-text"><strong>Seligman, AZ</strong>Berceau de la Route 66, authentique "Last Town Bypassed by I-40". Diner vintage, boutiques kitsch.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">12h</div>
+          <div class="timeline-icon">🏙</div>
+          <div class="timeline-text"><strong>Williams, AZ</strong>Dernière ville contournée par I-40, point de départ alternatif pour le Grand Canyon.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">14h</div>
+          <div class="timeline-icon">🏜</div>
+          <div class="timeline-text"><strong>Grand Canyon South Rim</strong>Arrivée ! Premier coucher de soleil depuis Mather Point ou Desert View. Attention aux vertiges !</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">17h–18h</div>
+          <div class="timeline-icon">🌅</div>
+          <div class="timeline-text"><strong>Coucher de Soleil</strong>Hopi Point ou Yaki Point pour les plus belles lumières.</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="info-card">
+        <div class="info-card-header">Le Grand Canyon en Chiffres</div>
+        <p><strong>Longueur :</strong> 446 km<br>
+        <strong>Largeur :</strong> jusqu'à 29 km<br>
+        <strong>Profondeur :</strong> 1 800 m<br>
+        <strong>Âge des roches :</strong> 2 milliards d'années<br>
+        <strong>Classé :</strong> Patrimoine Mondial UNESCO<br><br>
+        L'un des sites naturels les plus impressionnants de la Planète. Les couleurs de la roche varient du rouge brique à l'ocre doré selon l'heure de la journée.</p>
+      </div>
+
+      <div class="hotel-card" style="margin-top:10px;">
+        <div class="hotel-icon-box">🏨</div>
+        <div>
+          <div class="hotel-name">Grand Canyon Hotel &amp; Suites</div>
+          <div class="hotel-address">226 Highway 64 — Tusayan, AZ 86023<br>2 nuits — Petit-déj inclus</div>
+          <div class="hotel-amenities">
+            <span class="amenity-badge">Petit-déj</span>
+            <span class="amenity-badge">Piscine int.</span>
+          </div>
+          <div class="hotel-address" style="margin-top:5px;color:var(--or-light);">356 $ CB Amélie — Annulation gratuite avant le 25/05</div>
+        </div>
+      </div>
+
+      <div class="tips-box">
+        <div class="tips-box-header">💡 Conseils Route 66</div>
+        <p>Faites le plein d'essence avant Seligman, les prix sont plus élevés sur la route historique. À Seligman, la "Rusty Bolt" et la "Copper Cart" sont incontournables. Ne manquez pas les vieilles stations Texaco et Sinclair peintes en vert.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== J8 GRAND CANYON ===== -->
+<div class="etape-page" id="j8">
+  <div class="etape-header">
+    <div class="etape-num-badge">
+      <span class="jour-label">Jour</span>8
+    </div>
+    <div class="etape-title-bar">
+      <div class="day-of-week">Dimanche</div>
+      <h2>Grand Canyon National Park</h2>
+      <div class="date-display">31 mai 2026</div>
+    </div>
+  </div>
+
+  <div class="content-grid">
+    <div>
+      <div class="timeline">
+        <div class="info-card-header">Randonnée du Jour — Boucle Kaibab / Bright Angel</div>
+        <div class="timeline-item">
+          <div class="timeline-time">6h</div>
+          <div class="timeline-icon">🌅</div>
+          <div class="timeline-text"><strong>Départ au lever du soleil</strong>South Kaibab Trailhead — prenez de l'eau et de la nourriture !</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">6h–9h</div>
+          <div class="timeline-icon">⬇</div>
+          <div class="timeline-text"><strong>South Kaibab Trail — Descente</strong>Cedar Ridge (1,9 km) ou Ooh Aah Point (2,9 km) en aller-retour selon l'énergie. Panoramas époustouflants sur le Canyon.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">12h–16h</div>
+          <div class="timeline-icon">⬆</div>
+          <div class="timeline-text"><strong>Bright Angel Trail — Remontée</strong>Via Indian Garden Campground (eau potable disponible) puis remontée jusqu'au Rim. Plus ombragé et avec eau.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">16h–18h</div>
+          <div class="timeline-icon">🚌</div>
+          <div class="timeline-text"><strong>Rim Trail &amp; navettes</strong>Profiter des navettes gratuites pour découvrir d'autres points de vue (Hermit Road).</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="info-card">
+        <div class="info-card-header">⚠ Avertissements Randonnée</div>
+        <p><strong>CRITIQUE :</strong> Ne descendez JAMAIS jusqu'à la rivière et retour en une journée depuis le Rim. La chaleur au fond du Canyon peut dépasser 50°C en été.<br><br>
+        ✔ Minimum 4 litres d'eau par personne<br>
+        ✔ Snacks énergétiques toutes les heures<br>
+        ✔ Départ avant le lever du soleil en été<br>
+        ✔ Crème solaire, chapeau obligatoires<br>
+        ✔ Chaussures de randonnée avec grip</p>
+      </div>
+
+      <div class="info-card" style="margin-top:10px;">
+        <div class="info-card-header">Points de Vue Incontournables</div>
+        <p>• <strong>Mather Point</strong> — le plus accessible et photographié<br>
+        • <strong>Yaki Point</strong> — moins fréquenté, luminosité matinale<br>
+        • <strong>Hopi Point</strong> — meilleur coucher de soleil sur le Rim Ouest<br>
+        • <strong>Desert View Watchtower</strong> — 45 km à l'est, tour historique Mary Colter</p>
+      </div>
+
+      <div class="tips-box">
+        <div class="tips-box-header">💡 Bon à savoir</div>
+        <p>Le Grand Canyon Village possède un supermarché, pharmacie et restaurants. L'entrée avec l'America The Beautiful Pass est gratuite. Les navettes (Shuttle) sont gratuites et très pratiques. Le soir, le ciel étoilé est exceptionnel (zone sombre certifiée).</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== J9 MONUMENT VALLEY ===== -->
+<div class="etape-page" id="j9">
+  <div class="etape-header">
+    <div class="etape-num-badge">
+      <span class="jour-label">Jour</span>9
+    </div>
+    <div class="etape-title-bar">
+      <div class="day-of-week">Lundi</div>
+      <h2>Grand Canyon → Monument Valley</h2>
+      <div class="date-display">1er juin 2026</div>
+    </div>
+  </div>
+
+  <div class="route-strip">
+    <div class="route-item">🚗 <span class="val">Grand Canyon → Monument Valley</span> ~4h (environ 330 km) via Cameron</div>
+  </div>
+
+  <div class="content-grid">
+    <div>
+      <div class="info-card">
+        <div class="info-card-header">Monument Valley — Les Merveilles Navajo</div>
+        <p>Monument Valley Navajo Tribal Park est l'un des paysages les plus emblématiques des USA. Les trois "Mittens" (West Mitten, East Mitten, Merrick Butte) se dressent à plus de 300m au-dessus de la plaine rouge de grès.<br><br>
+        <strong>Valley Drive :</strong> Piste de 27 km en gravel traversant les monuments. SUV recommandé.<br>
+        <strong>John Ford's Point :</strong> Le point de vue le plus célèbre, utilisé dans des dizaines de westerns.<br>
+        <strong>Artisanat Navajo :</strong> Bijoux, tapis et poteries vendus directement par les artisans locaux.</p>
+      </div>
+
+      <div class="tips-box" style="margin-top:10px;">
+        <div class="tips-box-header">💡 Conseils Monument Valley</div>
+        <p>Le parc est géré par la Nation Navajo (pas couvert par le National Park Pass — entrée ~20$/véhicule). Respectez les panneaux "No photography" dans les zones sacrées. Les visites guidées en Jeep avec guides Navajo sont très enrichissantes.</p>
+      </div>
+    </div>
+
+    <div>
+      <div class="hotel-card">
+        <div class="hotel-icon-box">🏨</div>
+        <div>
+          <div class="hotel-name">Wetherill Inn</div>
+          <div class="hotel-address">Highway 163 — Kayenta, AZ 86033<br>1 nuit — Petit-déj inclus</div>
+          <div class="hotel-amenities">
+            <span class="amenity-badge">Petit-déj</span>
+            <span class="amenity-badge">Blanchisserie</span>
+          </div>
+          <div class="hotel-address" style="margin-top:5px;color:var(--or-light);">197,23 $ CB Gold — Annulation avant le 31/05</div>
+        </div>
+      </div>
+
+      <div class="info-card" style="margin-top:10px;">
+        <div class="info-card-header">Sur la Route — Cameron</div>
+        <p>Arrêt au <strong>Cameron Trading Post</strong> (Hwy 89) — Trading post historique sur le territoire Navajo, marché artisanal, galerie d'art. Le pont suspendu de Cameron enjambe le Little Colorado River.</p>
+      </div>
+
+      <div class="info-card" style="margin-top:10px;">
+        <div class="info-card-header">Le Saviez-Vous ?</div>
+        <p>Monument Valley a servi de décor à plus de 50 films hollywoodiens, dont "La Chevauchée Fantastique" (1939) de John Ford et "Forrest Gump" (1994). Les Navajos appellent ce lieu <em>"Tsé Bii' Ndzisgaii"</em> — "la vallée dans le rock".</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== J10 LAKE POWELL / PAGE ===== -->
+<div class="etape-page" id="j10">
+  <div class="etape-header">
+    <div class="etape-num-badge">
+      <span class="jour-label">Jour</span>10
+    </div>
+    <div class="etape-title-bar">
+      <div class="day-of-week">Mardi</div>
+      <h2>Monument Valley → Lake Powell / Page</h2>
+      <div class="date-display">2 juin 2026</div>
+    </div>
+  </div>
+
+  <div class="route-strip">
+    <div class="route-item">🚗 <span class="val">Monument Valley → Page</span> ~2h (180 km)</div>
+    <div class="route-item">🏛 <span class="val">Antelope Canyon Lower</span> réservé 12h30</div>
+    <div class="route-item">🚗 <span class="val">Horseshoe Bend</span> Parking 10$/véhicule</div>
+  </div>
+
+  <div class="content-grid">
+    <div>
+      <div class="timeline">
+        <div class="info-card-header">Programme de la journée</div>
+        <div class="timeline-item">
+          <div class="timeline-time">9h</div>
+          <div class="timeline-icon">🚗</div>
+          <div class="timeline-text"><strong>Départ Monument Valley → Page</strong>Route 163 puis 98, paysages grandioses.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">11h</div>
+          <div class="timeline-icon">🐴</div>
+          <div class="timeline-text"><strong>Horseshoe Bend</strong>Méandre du Colorado en fer à cheval. Sentier facile de 2,4 km A/R. Parking 10 $/véhicule. Vertige possible !</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">12h30</div>
+          <div class="timeline-icon">🪨</div>
+          <div class="timeline-text"><strong>Lower Antelope Canyon — RÉSERVÉ</strong>Visite guidée obligatoire. Lumières magiques de midi. Rés. 371 $ CB Amélie.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">15h</div>
+          <div class="timeline-icon">💧</div>
+          <div class="timeline-text"><strong>Lake Powell</strong>Second plus grand réservoir des USA, eaux turquoise entourées de falaises de grès orangé. Wahweap Marina.</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="info-card">
+        <div class="info-card-header">Antelope Canyon — Infos Essentielles</div>
+        <p><strong>Lower Antelope Canyon</strong> (Hasdeztwazi) est un slot canyon sinueux d'environ 400 m de long taillé dans le grès Navajo par des siècles d'érosion. Les rayons de lumière entrent par les fissures du haut créant des effets spectaculaires de midi à 14h.<br><br>
+        ⚠ Visite guidée OBLIGATOIRE avec guide Navajo<br>
+        📷 Trépied interdit sans supplément<br>
+        👟 Port de baskets conseillé (sol sableux)<br>
+        🎒 Petits sacs uniquement</p>
+      </div>
+
+      <div class="hotel-card" style="margin-top:10px;">
+        <div class="hotel-icon-box">🏨</div>
+        <div>
+          <div class="hotel-name">Travelodge by Wyndham Page</div>
+          <div class="hotel-address">207 N Lake Powell Blvd — Page, AZ 86040<br>1 nuit — Vue sur Lake Powell</div>
+          <div class="hotel-amenities">
+            <span class="amenity-badge">Petit-déj</span>
+            <span class="amenity-badge">Piscine ext.</span>
+          </div>
+          <div class="hotel-address" style="margin-top:5px;color:var(--or-light);">87 $ sur place CB Gold — Annulation avant le 01/06</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== J11-12 BRYCE CANYON ===== -->
+<div class="etape-page" id="j11">
+  <div class="etape-header">
+    <div class="etape-num-badge">
+      <span class="jour-label">Jours</span>11–12
+    </div>
+    <div class="etape-title-bar">
+      <div class="day-of-week">Mercredi – Jeudi</div>
+      <h2>Bryce Canyon National Park</h2>
+      <div class="date-display">3 – 4 juin 2026</div>
+    </div>
+  </div>
+
+  <div class="route-strip">
+    <div class="route-item">🚗 <span class="val">Page → Bryce Canyon</span> 2h45 (260 km)</div>
+    <div class="route-item">🛣 <span class="val">Arrêts possibles :</span> Sand Caves + Belly of the Dragon (après Kanab)</div>
+  </div>
+
+  <div class="content-grid">
+    <div>
+      <div class="info-card">
+        <div class="info-card-header">Les Hoodoos — Merveille Géologique</div>
+        <p>Bryce Canyon n'est pas un canyon mais un amphithéâtre naturel taillé par l'érosion dans le Plateau Paunsaugunt. Les <strong>hoodoos</strong>, ces cheminées de fée en pierre, atteignent 60 mètres de hauteur. Le parc est à 2 400–2 700 m d'altitude — les nuits sont fraîches même en juin.</p>
+      </div>
+
+      <div class="timeline" style="margin-top:10px;">
+        <div class="info-card-header">Big Loop — J12 (journée entière)</div>
+        <div class="timeline-item">
+          <div class="timeline-time">6h</div>
+          <div class="timeline-icon">🌅</div>
+          <div class="timeline-text"><strong>Départ de Sunrise Point</strong>Lever de soleil depuis le point de vue — spectaculaire !</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">6h30</div>
+          <div class="timeline-icon">⬇</div>
+          <div class="timeline-text"><strong>Queen's Garden Trail</strong>Descente dans l'amphithéâtre — hoodoos à portée de main.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">9h</div>
+          <div class="timeline-icon">🔄</div>
+          <div class="timeline-text"><strong>Navajo Loop + Peek-A-Boo Loop</strong>Boucle complète ~15 km, 6h au total. Réservée aux marcheurs entraînés.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">13h</div>
+          <div class="timeline-icon">🚌</div>
+          <div class="timeline-text"><strong>Navettes gratuites</strong>Rim Trail et navettes desservent tous les viewpoints. Depuis Sunrise Point retour à l'hôtel.</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="hotel-card">
+        <div class="hotel-icon-box">🏡</div>
+        <div>
+          <div class="hotel-name">Bryce Gateway Inn Cabins</div>
+          <div class="hotel-address">3066 Highway 12 — Panguitch, UT 84759<br>2 nuits — Cabines</div>
+          <div class="hotel-amenities">
+            <span class="amenity-badge">Cabines</span>
+          </div>
+          <div class="hotel-address" style="margin-top:5px;color:var(--or-light);">132,02 $ sur place CB Gold — Annulation avant le 02/06</div>
+        </div>
+      </div>
+
+      <div class="info-card" style="margin-top:10px;">
+        <div class="info-card-header">Sur la Route — Arrêts J11</div>
+        <p><strong>Sand Caves (près de Kanab) :</strong> Grotte de grès facile d'accès, vue sur la plaine rouge. 30 min d'arrêt.<br><br>
+        <strong>Belly of the Dragon :</strong> Tunnel naturel taillé dans la roche, très instagrammable. Randonnée courte.</p>
+      </div>
+
+      <div class="tips-box">
+        <div class="tips-box-header">💡 Conseils Bryce</div>
+        <p>Le Big Loop est difficile (15 km, dénivelé important). Emportez suffisamment d'eau et de nourriture. Les navettes gratuites du parc permettent d'éviter le stationnement. Levez-vous tôt pour les lumières du matin dans les hoodoos.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== J13-14 ZION ===== -->
+<div class="etape-page" id="j13">
+  <div class="etape-header">
+    <div class="etape-num-badge">
+      <span class="jour-label">Jours</span>13–14
+    </div>
+    <div class="etape-title-bar">
+      <div class="day-of-week">Vendredi – Samedi</div>
+      <h2>Zion National Park, Utah</h2>
+      <div class="date-display">5 – 6 juin 2026</div>
+    </div>
+  </div>
+
+  <div class="route-strip">
+    <div class="route-item">🚗 <span class="val">Bryce Canyon → Zion</span> 1h30 (120 km)</div>
+    <div class="route-item">⚠ <span class="val">Accès en navettes obligatoires</span> en saison (voiture interdite dans le canyon)</div>
+  </div>
+
+  <div class="content-grid">
+    <div>
+      <div class="info-card">
+        <div class="info-card-header">Zion Canyon — Le Temple des Dieux</div>
+        <p>Zion est le parc le plus visité de l'Utah. La Virgin River a creusé ce canyon aux parois vertigineuses de grès rouge sur 800 mètres de hauteur. Le parc est à basse altitude (1 200 m) — températures plus douces en juin.<br><br>
+        En haute saison, <strong>les voitures sont interdites</strong> dans la Zion Canyon Scenic Drive. Les navettes gratuites desservent les 9 stops du canyon.</p>
+      </div>
+
+      <div class="timeline" style="margin-top:10px;">
+        <div class="info-card-header">Programme J14 — The Narrows</div>
+        <div class="timeline-item">
+          <div class="timeline-time">7h</div>
+          <div class="timeline-icon">🚌</div>
+          <div class="timeline-text"><strong>Navette → Temple of Sinawava (Stop 9)</strong>Départ tôt pour éviter la foule.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">7h30</div>
+          <div class="timeline-icon">💧</div>
+          <div class="timeline-text"><strong>The Narrows — Riverside Walk</strong>Marche dans la rivière Virgin sur 1,5 km facile. Puis entrée dans les Narrows proprement dits : marche EN rivière entre les parois de 300m (eau aux genoux à la taille selon le débit).</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">13h</div>
+          <div class="timeline-icon">🍽</div>
+          <div class="timeline-text"><strong>Déjeuner à Springdale</strong>Village à l'entrée du parc, nombreux restaurants.</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="hotel-card">
+        <div class="hotel-icon-box">🏨</div>
+        <div>
+          <div class="hotel-name">Hotel Zion Inn</div>
+          <div class="hotel-address">65 South 700 West — Hurricane, UT 84737<br>Zone Zion — 2 nuits</div>
+          <div class="hotel-amenities">
+            <span class="amenity-badge">Blanchisserie</span>
+          </div>
+          <div class="hotel-address" style="margin-top:5px;color:var(--or-light);">115 $ sur place CB Gold — Annulation avant le 04/06</div>
+        </div>
+      </div>
+
+      <div class="info-card" style="margin-top:10px;">
+        <div class="info-card-header">Autres Randonnées Possibles J13</div>
+        <p><strong>Emerald Pools Trail</strong> — Facile, 5 km, cascades et piscines naturelles. Idéal pour une première journée.<br><br>
+        <strong>Angels Landing</strong> — Difficile, permit requis depuis 2022, chaînes d'escalade finale. Panorama à 360° exceptionnel (non recommandé avec enfants).<br><br>
+        <strong>Canyon Overlook Trail</strong> — Facile-modéré, 1h, vue sur l'entrée du canyon.</p>
+      </div>
+
+      <div class="tips-box">
+        <div class="tips-box-header">💡 The Narrows en juin</div>
+        <p>Le débit de la Virgin River est élevé en juin (fonte des neiges). Vérifiez le niveau d'eau la veille sur le site du NPS. Des bâtons de marche se louent à Springdale. Prévoyez des chaussures mouillables et une couche imperméable. L'eau est froide !</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== J15 DEATH VALLEY ===== -->
+<div class="etape-page" id="j15">
+  <div class="etape-header">
+    <div class="etape-num-badge">
+      <span class="jour-label">Jour</span>15
+    </div>
+    <div class="etape-title-bar">
+      <div class="day-of-week">Dimanche</div>
+      <h2>Zion → Death Valley</h2>
+      <div class="date-display">7 juin 2026</div>
+    </div>
+  </div>
+
+  <div class="route-strip">
+    <div class="route-item">🚗 <span class="val">Zion → Death Valley</span> ~4h (427 km)</div>
+    <div class="route-item">🌡 <span class="val">Températures juin</span> jusqu'à 50°C au fond du valley !</div>
+  </div>
+
+  <div class="content-grid">
+    <div>
+      <div class="info-card">
+        <div class="info-card-header">Death Valley — La Vallée de la Mort</div>
+        <p>Lieu le plus chaud et le plus bas de l'hémisphère occidental : <strong>Badwater Basin</strong> est à -86 m sous le niveau de la mer. Record mondial de chaleur : 56,7°C enregistré en 1913.<br><br>
+        <strong>Points à voir :</strong><br>
+        • Badwater Basin — marais de sel, paysage lunaire<br>
+        • Zabriskie Point — dunes d'argile plissées, coucher de soleil<br>
+        • Artist's Drive — roches multicolores (oxyde de fer, manganèse...)<br>
+        • Mesquite Flat Sand Dunes — les seules dunes de sable</p>
+      </div>
+
+      <div class="tips-box">
+        <div class="tips-box-header">⚠ Précautions Death Valley</div>
+        <p>Ne sortez JAMAIS sans minimum 4L d'eau par personne. Ne visitez les sites en extérieur qu'avant 10h et après 17h. Vérifiez la pression des pneus (la chaleur les dilate). Tenez la climatisation en marche. En cas de panne, restez dans votre véhicule et appelez les secours.</p>
+      </div>
+    </div>
+
+    <div>
+      <div class="hotel-card">
+        <div class="hotel-icon-box">🎰</div>
+        <div>
+          <div class="hotel-name">Longstreet Inn &amp; Casino</div>
+          <div class="hotel-address">4400 South Highway 373 — Amargosa Valley, NV 89020<br>1 nuit</div>
+          <div class="hotel-amenities">
+            <span class="amenity-badge">Piscine ext.</span>
+            <span class="amenity-badge">Blanchisserie</span>
+          </div>
+          <div class="hotel-address" style="margin-top:5px;color:var(--or-light);">98 $ sur place CB Gold — Annulation avant le 06/06</div>
+        </div>
+      </div>
+
+      <div class="info-card" style="margin-top:10px;">
+        <div class="info-card-header">Infos Pratiques</div>
+        <p><strong>Essence :</strong> Faites le plein avant d'entrer dans la valley, les prix sont très élevés à Furnace Creek.<br><br>
+        <strong>Couverture réseau :</strong> Très limitée — téléchargez les cartes offline avant.<br><br>
+        <strong>Hôtels dans la valley :</strong> Ranch at Death Valley et Oasis (Furnace Creek) sont les seuls sur place, très chers.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== J16 MAMMOTH LAKES ===== -->
+<div class="etape-page" id="j16">
+  <div class="etape-header">
+    <div class="etape-num-badge">
+      <span class="jour-label">Jour</span>16
+    </div>
+    <div class="etape-title-bar">
+      <div class="day-of-week">Lundi</div>
+      <h2>Death Valley → Mammoth Lakes</h2>
+      <div class="date-display">8 juin 2026</div>
+    </div>
+  </div>
+
+  <div class="route-strip">
+    <div class="route-item">🚗 <span class="val">Death Valley → Mammoth Lakes</span> ~3h20 (305 km) via US-395</div>
+  </div>
+
+  <div class="content-grid">
+    <div>
+      <div class="info-card">
+        <div class="info-card-header">Mammoth Lakes — Portes de Yosemite</div>
+        <p>Station de montagne à 2 400 m d'altitude dans la Sierra Nevada. Cadre spectaculaire de lacs alpins, sources géothermiques et pics granitiques. Étape de transition idéale avant Yosemite par la Tioga Pass.<br><br>
+        <strong>À voir / à faire :</strong><br>
+        • Devils Postpile National Monument (colonnes de basalte hexagonales)<br>
+        • Rainbow Falls (cascade de 30m)<br>
+        • Hot Creek Geological Site (sources chaudes)<br>
+        • Minaret Summit (panorama sur les Minarets)</p>
+      </div>
+    </div>
+
+    <div>
+      <div class="hotel-card">
+        <div class="hotel-icon-box">🏨</div>
+        <div>
+          <div class="hotel-name">Motel 6 — Mammoth Lakes CA</div>
+          <div class="hotel-address">3372 Main Street — Mammoth Lakes, CA 93546<br>1 nuit</div>
+          <div class="hotel-amenities">
+            <span class="amenity-badge">Blanchisserie</span>
+          </div>
+          <div class="hotel-address" style="margin-top:5px;color:var(--or-light);">126 $ sur place CB Gold — Annulation avant le 07/06</div>
+        </div>
+      </div>
+
+      <div class="tips-box" style="margin-top:10px;">
+        <div class="tips-box-header">💡 Transition Death Valley → Sierra Nevada</div>
+        <p>La route US-395 longe la Sierra Nevada avec des vues magnifiques sur les pics enneigés. Faites le plein à Lone Pine (point bas, prix corrects). Arrêt possible à Manzanar National Historic Site (camp d'internement japonais WWII).</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== J17-20 YOSEMITE ===== -->
+<div class="etape-page" id="j17">
+  <div class="etape-header">
+    <div class="etape-num-badge">
+      <span class="jour-label">Jours</span>17–20
+    </div>
+    <div class="etape-title-bar">
+      <div class="day-of-week">Mardi – Vendredi</div>
+      <h2>Yosemite National Park</h2>
+      <div class="date-display">9 – 12 juin 2026</div>
+    </div>
+  </div>
+
+  <div class="route-strip">
+    <div class="route-item">🚗 <span class="val">Mammoth → Yosemite</span> via Tioga Pass (US-120) 2h (160 km)</div>
+    <div class="route-item">⚠ <span class="val">Tioga Pass :</span> Vérifier l'ouverture en juin (altitude 3 031m)</div>
+  </div>
+
+  <div class="content-grid">
+    <div>
+      <div class="info-card">
+        <div class="info-card-header">Yosemite Valley — Le Sanctuaire de Granit</div>
+        <p>Yosemite est l'un des parcs les plus aimés des USA. La vallée de 11 km de long est encadrée de parois granitiques atteignant 1 000m. En juin, les cascades sont à leur débit maximum grâce à la fonte des neiges — spectacle garanti !<br><br>
+        <strong>Sites emblématiques :</strong><br>
+        • <strong>El Capitan</strong> — monolithe de granit de 1 000m (mur préféré des grimpeurs)<br>
+        • <strong>Half Dome</strong> — demi-sphère emblématique, permit requis pour les câbles<br>
+        • <strong>Yosemite Falls</strong> — plus haute cascade des USA (739m), débit max en juin<br>
+        • <strong>Bridalveil Fall</strong> — cascade vue depuis la vallée, facile d'accès<br>
+        • <strong>Mariposa Grove</strong> — forêt de séquoias géants</p>
+      </div>
+
+      <div class="tips-box" style="margin-top:10px;">
+        <div class="tips-box-header">💡 Conseils Yosemite</div>
+        <p>La réservation de timed entry permit est souvent obligatoire en saison (vérifier sur nps.gov/yose). Arrivez très tôt le matin pour trouver une place. Les navettes gratuites desservent toute la vallée. Le soir, les lumières rasantes sur El Capitan sont magiques.</p>
+      </div>
+    </div>
+
+    <div>
+      <div class="hotel-card">
+        <div class="hotel-icon-box">⛺</div>
+        <div>
+          <div class="hotel-name">Curry Village — Half Dome Village</div>
+          <div class="hotel-address">Yosemite Valley, CA<br>4 nuits — 2 logements réservés</div>
+          <div class="hotel-amenities">
+            <span class="amenity-badge">Dans le parc</span>
+          </div>
+          <div class="hotel-address" style="margin-top:5px;color:var(--or-light);">Rés. sous jeffetamelie@free.fr + jeffetamelie85@gmail.com<br>2×182,78 € payés + 2×637,89 $ à payer CB Amélie+JF</div>
+        </div>
+      </div>
+
+      <div class="info-card" style="margin-top:10px;">
+        <div class="info-card-header">Randonnées Recommandées (4 jours)</div>
+        <p><strong>J17 (arrivée)</strong> — Valley View + Mirror Lake (facile, 8 km)<br>
+        <strong>J18</strong> — Yosemite Falls Trail (modéré, 13 km, 890m D+) — cascades en plein débit juin<br>
+        <strong>J19</strong> — Bridalveil Fall + Valley Floor Loop (facile, 13 km à plat)<br>
+        <strong>J20</strong> — Mariposa Grove de séquoias + Panorama Trail</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== J21-23 SAN FRANCISCO ===== -->
+<div class="etape-page" id="j21">
+  <div class="etape-header">
+    <div class="etape-num-badge">
+      <span class="jour-label">Jours</span>21–23
+    </div>
+    <div class="etape-title-bar">
+      <div class="day-of-week">Samedi – Lundi</div>
+      <h2>San Francisco, California</h2>
+      <div class="date-display">13 – 15 juin 2026</div>
+    </div>
+  </div>
+
+  <div class="route-strip">
+    <div class="route-item">🚗 <span class="val">Yosemite → San Francisco</span> ~4h (300 km) via Central Valley</div>
+    <div class="route-item">🏨 <span class="val">Adelaïde Hostel</span> Union Square — 3 nuits</div>
+  </div>
+
+  <div class="content-grid">
+    <div>
+      <div class="info-card">
+        <div class="info-card-header">San Francisco — La City by the Bay</div>
+        <p>Ville de 47 km² sur une péninsule entre le Pacifique et la Baie de San Francisco. Caractérisée par ses maisons victoriennes colorées, ses cable cars emblématiques et sa culture bohème.<br><br>
+        <strong>Incontournables :</strong><br>
+        • <strong>Golden Gate Bridge</strong> — vue depuis Baker Beach ou Crissy Field<br>
+        • <strong>Alcatraz</strong> — île-prison, visite réservée à 15h45 (Get Your Guide) ✔<br>
+        • <strong>Lombard Street</strong> — la "rue la plus tortueuse du monde"<br>
+        • <strong>Fisherman's Wharf</strong> — crabe frais, otaries, Pier 39<br>
+        • <strong>Chinatown</strong> — plus grande Chinatown des USA<br>
+        • <strong>Mission District</strong> — murales, tacos, ambiance latino</p>
+      </div>
+    </div>
+
+    <div>
+      <div class="hotel-card">
+        <div class="hotel-icon-box">🏨</div>
+        <div>
+          <div class="hotel-name">Adelaïde Hostel</div>
+          <div class="hotel-address">5 Isadora Duncan Street — Union Square<br>San Francisco, CA 94102 — 3 nuits</div>
+          <div class="hotel-amenities">
+            <span class="amenity-badge">Blanchisserie</span>
+            <span class="amenity-badge">Quartier central</span>
+          </div>
+          <div class="hotel-address" style="margin-top:5px;color:var(--or-light);">465 $ sur place CB Gold — Annulation avant le 11/06</div>
+        </div>
+      </div>
+
+      <div class="info-card" style="margin-top:10px;">
+        <div class="info-card-header">Transports SF</div>
+        <p><strong>Cable Cars :</strong> 3 lignes historiques, 7 $ le trajet. Longues files d'attente — préférez monter à la terminus de Powell Street.<br><br>
+        <strong>MUNI :</strong> Bus et tram de la ville. Clipper Card rechargeable.<br><br>
+        <strong>Uber/Lyft :</strong> Pratique pour les zones éloignées.</p>
+      </div>
+
+      <div class="tips-box">
+        <div class="tips-box-header">💡 Météo SF en Juin</div>
+        <p>San Francisco est connue pour son brouillard estival ("Karl the Fog"). Les températures restent fraîches en juin (15–20°C). Prévoyez une veste même en été ! Le brouillard se dissipe généralement l'après-midi.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== J24-25 HIGHWAY 1 ===== -->
+<div class="etape-page" id="j24">
+  <div class="etape-header">
+    <div class="etape-num-badge">
+      <span class="jour-label">Jours</span>24–25
+    </div>
+    <div class="etape-title-bar">
+      <div class="day-of-week">Mardi – Mercredi</div>
+      <h2>Highway 1 — Big Sur / Monterey / Pismo Beach</h2>
+      <div class="date-display">16 – 17 juin 2026</div>
+    </div>
+  </div>
+
+  <div class="route-strip">
+    <div class="route-item">🚗 <span class="val">SF → Monterey</span> via Hwy 1 ~3h (200 km) de panoramas</div>
+    <div class="route-item">🚗 <span class="val">Monterey → Pismo Beach</span> via Hwy 1 ~2h30 (250 km)</div>
+  </div>
+
+  <div class="content-grid">
+    <div>
+      <div class="info-card">
+        <div class="info-card-header">Highway 1 — La Corniche Californienne</div>
+        <p>La Route 1 californienne longe la côte Pacifique avec des falaises abruptes plongeant dans l'océan. L'un des plus beaux trajets en voiture au monde selon National Geographic.<br><br>
+        <strong>Arrêts clés :</strong><br>
+        • <strong>Bixby Creek Bridge</strong> — pont suspendu iconique au-dessus d'un ravin<br>
+        • <strong>McWay Falls</strong> — chute d'eau tombant directement sur la plage<br>
+        • <strong>Pfeiffer Beach</strong> — rocher de sable violet, arche naturelle<br>
+        • <strong>Elephant Seal Vista Point</strong> — otaries de mer à Piedras Blancas<br>
+        • <strong>Hearst Castle</strong> (recommandé par Cindy) — château extravagant de William Randolph Hearst<br>
+        • <strong>Solvang</strong> (recommandé par Cindy) — village danois pittoresque</p>
+      </div>
+    </div>
+
+    <div>
+      <div class="hotel-card">
+        <div class="hotel-icon-box">🏨</div>
+        <div>
+          <div class="hotel-name">Super 8 by Wyndham — Monterey</div>
+          <div class="hotel-address">2120 North Fremont Street<br>Monterey, CA 93940 — 1 nuit J24</div>
+          <div class="hotel-address" style="margin-top:5px;color:var(--or-light);">91,62 $ CB Gold</div>
+        </div>
+      </div>
+
+      <div class="hotel-card" style="margin-top:10px;">
+        <div class="hotel-icon-box">🏊</div>
+        <div>
+          <div class="hotel-name">Edgewater Inn and Suites</div>
+          <div class="hotel-address">280 Wadsworth Avenue<br>Pismo Beach, CA 93449 — 1 nuit J25</div>
+          <div class="hotel-amenities">
+            <span class="amenity-badge">Blanchisserie</span>
+            <span class="amenity-badge">Piscine ext.</span>
+          </div>
+          <div class="hotel-address" style="margin-top:5px;color:var(--or-light);">168 $ CB Gold — Annulation avant le 16/06</div>
+        </div>
+      </div>
+
+      <div class="tips-box" style="margin-top:10px;">
+        <div class="tips-box-header">💡 Highway 1 Pratique</div>
+        <p>La route est parfois à une voie dans les sections les plus escarpées. Ne vous précipitez pas — profitez des nombreux pullouts pour vous arrêter. En saison, des travaux peuvent fermer des sections — vérifiez caltrans.ca.gov avant de partir.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== J26-28 LOS ANGELES ===== -->
+<div class="etape-page" id="j26">
+  <div class="etape-header">
+    <div class="etape-num-badge">
+      <span class="jour-label">Jours</span>26–28
+    </div>
+    <div class="etape-title-bar">
+      <div class="day-of-week">Jeudi – Samedi</div>
+      <h2>Los Angeles, California</h2>
+      <div class="date-display">18 – 20 juin 2026</div>
+    </div>
+  </div>
+
+  <div class="route-strip">
+    <div class="route-item">🚗 <span class="val">Pismo Beach → Los Angeles</span> ~3h (285 km) via Santa Barbara</div>
+    <div class="route-item">🏨 <span class="val">Hébergement LA</span> à réserver — 2 nuits ⚠</div>
+  </div>
+
+  <div class="content-grid">
+    <div>
+      <div class="info-card">
+        <div class="info-card-header">Los Angeles — La Cité des Anges</div>
+        <p>La 2ème ville des USA, capitale mondiale du cinéma et du divertissement. LA est immense — prévoyez du temps de trajet (trafic notoire).<br><br>
+        <strong>Incontournables :</strong><br>
+        • <strong>Hollywood Blvd</strong> — Walk of Fame, TCL Chinese Theatre, étoiles<br>
+        • <strong>Griffith Observatory</strong> — vue panoramique sur LA et le panneau Hollywood<br>
+        • <strong>Santa Monica Pier</strong> — fin de la Route 66 historique, plage<br>
+        • <strong>Venice Beach</strong> — boardwalk, artistes de rue, muscle beach<br>
+        • <strong>The Getty Center</strong> — musée d'art moderne, architecture spectaculaire</p>
+      </div>
+
+      <div class="info-card" style="margin-top:10px;">
+        <div class="info-card-header">Studios Hollywood</div>
+        <p><strong>Warner Bros Studio Tour</strong> — Plus axé sur la production réelle (sets de tournage en activité). Durée 3h. Réservation en ligne conseillée.<br><br>
+        <strong>Universal Studios Hollywood</strong> — Parc d'attractions + visites studios. Journée complète. Files d'attente longues en haute saison.</p>
+      </div>
+    </div>
+
+    <div>
+      <div class="info-card">
+        <div class="info-card-header">⚠ Hébergement LA — À Réserver !</div>
+        <p style="color:var(--rouge);font-weight:700;">⚠ Logement pour 2 nuits à Los Angeles pas encore réservé !</p>
+        <p style="margin-top:8px;"><strong>Zones recommandées :</strong><br>
+        • West Hollywood / Beverly Hills (accès Strip + studios)<br>
+        • Santa Monica (plage + ambiance)<br>
+        • Downtown LA (prix moins élevés, accès transports)<br>
+        • Universal City (proche Universal Studios + Hollywood)</p>
+      </div>
+
+      <div class="tips-box" style="margin-top:10px;">
+        <div class="tips-box-header">💡 LA Pratique</div>
+        <p>Évitez absolument les heures de pointe (7h–9h et 16h–19h) sur les freeways. Uber/Lyft plus pratiques que les transports en commun pour explorer. Pour rendre le SUV à l'aéroport LAX, prévoyez 1–2h de trajet selon la circulation.</p>
+      </div>
+
+      <div class="info-card" style="margin-top:10px;">
+        <div class="info-card-header">Arrêt Santa Barbara — J26</div>
+        <p>Sur la route Pismo → LA, arrêt incontournable à <strong>Santa Barbara</strong> : architecture néo-espagnole, Stearns Wharf, State Street animée. 1–2h d'arrêt idéal.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== J29 RETOUR ===== -->
+<div class="etape-page" id="j29">
+  <div class="etape-header">
+    <div class="etape-num-badge" style="background:var(--bleu);">
+      <span class="jour-label">Jour</span>29
+    </div>
+    <div class="etape-title-bar" style="background:var(--rouge-dark);">
+      <div class="day-of-week">Dimanche</div>
+      <h2>Retour — LAX → Paris CDG</h2>
+      <div class="date-display">21 juin 2026</div>
+    </div>
+  </div>
+
+  <div class="route-strip" style="background:var(--rouge-dark);">
+    <div class="route-item">✈ <span class="val">LAX départ 1h du matin → Paris CDG 20h35</span> (Norse Atlantic — A2673F + Z5YBQS)</div>
+    <div class="route-item">🚗 <span class="val">Restitution SUV Alamo</span> à l'aéroport LAX</div>
+  </div>
+
+  <div class="content-grid">
+    <div>
+      <div class="timeline">
+        <div class="info-card-header">Programme J29</div>
+        <div class="timeline-item">
+          <div class="timeline-time">21/06 J28 fin</div>
+          <div class="timeline-icon">🚗</div>
+          <div class="timeline-text"><strong>Dernière soirée à LA</strong>Dîner final, derniers achats de souvenirs.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">22h–23h</div>
+          <div class="timeline-icon">🚗</div>
+          <div class="timeline-text"><strong>Route vers LAX</strong>Restitution du SUV Alamo. Prévoyez 1h30 pour le trajet + retour voiture + enregistrement.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">01h00</div>
+          <div class="timeline-icon">✈</div>
+          <div class="timeline-text"><strong>Départ Los Angeles LAX</strong>Norse Atlantic Airways — Rés. A2673F + Z5YBQS</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-time">20h35</div>
+          <div class="timeline-icon">🏠</div>
+          <div class="timeline-text"><strong>Arrivée Paris CDG</strong>Retour en France après 30 jours d'aventures !</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="info-card">
+        <div class="info-card-header">Bilan du Voyage</div>
+        <p><strong>30 jours · 6 États ·</strong> Missouri, Nevada, Arizona, Utah, Californie, Nevada<br><br>
+        <strong>Parcs nationaux visités :</strong> Grand Canyon, Zion, Bryce Canyon, Death Valley, Yosemite, Joshua Tree (possible)<br><br>
+        <strong>Grands moments :</strong><br>
+        • Lever de soleil sur Monument Valley<br>
+        • Descente dans le Grand Canyon<br>
+        • Hoodoos de Bryce Canyon<br>
+        • The Narrows dans la Virgin River<br>
+        • Cascades de Yosemite en plein débit<br>
+        • Golden Gate sous le brouillard<br>
+        • Cirque du Soleil à Las Vegas</p>
+      </div>
+
+      <div class="tips-box" style="background:#e8f4e8;border-color:#27ae60;border-left-color:#27ae60;margin-top:10px;">
+        <div class="tips-box-header" style="color:#27ae60;">✈ Derniers Préparatifs Retour</div>
+        <p>Pensez à vider votre voiture de toute nourriture avant la restitution. Vérifiez que vous n'avez pas de plantes, fruits ou produits frais dans vos bagages (douane US et France strictes). Conservez les tickets de caisse pour les achats hors taxe.</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align:center;margin-top:30px;padding:20px;border-top:2px dashed var(--beige-dark);">
+    <div style="font-family:'Oswald',sans-serif;font-size:28px;color:var(--bleu);letter-spacing:3px;">BON VOYAGE !</div>
+    <div style="font-family:'Special Elite',cursive;font-size:16px;color:var(--or);margin-top:8px;">Amélie, Jeff &amp; Margaux — Summer 2026 🇺🇸</div>
+  </div>
+</div>
+
+</body>
+</html>
